@@ -1,5 +1,12 @@
 import express, { Request, Response } from "express"
 import cors from 'cors'
+import 'dotenv/config'
+
+import OpenAI from "openai"
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY,
+})
 
 const app = express()
 const port = 9000
