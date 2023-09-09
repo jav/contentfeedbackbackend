@@ -1,11 +1,14 @@
-import express from 'express'; const app = express()
+import express from 'express'
+import cors from 'cors'
 
+const app = express()
 const port = 9000
 
 app.use(express.static('public'))
+app.use(cors())
 
-app.get('/', (req, res) => {
-    res.send('Server is up and running! 🌞');
+app.post('/api/getFeedback', (req, res) => {
+    res.json({feedback: 'Hello from the backend! 👋'})
 })
 
 app.listen(port, () => {
