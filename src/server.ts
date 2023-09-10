@@ -21,12 +21,18 @@ const getFeedbackOnContent = async (contentToGetFeedbackOn: string) => {
         messages: [
             {
                 "role": "system",
-                "content": "You will be provided with a text, and your task is to \
-              evaluate the quality of storytelling of the text\
-              you will answer in a json format where \
-              the first property called score is a \
-              0-10 score of the quality of storytelling\
-              the second property called feedback is feedback to on how the text could improve its storytelling quality."
+                "content": `
+                    You will be provided with a text, and your task is to
+                    through different personas evaluate the quality of the text.
+                    You will answer with an json object, where the each persona is a key,
+                    and the value is an object with the properties 'score' and 'feedback'. 
+                    The first persona is 'the story teller', who reviews the text from
+                    a story telling perspective.
+                    The second persona is the 'teacher', who reviews the text from
+                    an educational perspective.
+                    The third persona is the 'helper', who reviews the text from
+                    the perspective of how easy the contents are to understand.
+                    `
             },
             {
                 "role": "user",
