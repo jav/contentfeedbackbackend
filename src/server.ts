@@ -15,24 +15,49 @@ app.use(express.static('public'))
 app.use(cors())
 app.use(express.json())
 
-const getFeedbackOnContent = async (contentToGetFeedbackOn: string) => {
+type Reviewer = {
+    description: string
+}
+
+const reviewersRoster = {
+    storyTeller: {
+        description: "reviews the text from a story telling perspective. How well does the text tell a story? Does include cliffhangers?"
+    },
+    teacher: {
+        description: "reviews the text from an educational perspective. How well does the text teach the reader? Is it clear? Does it include examples?"
+    },
+    hemingway: {
+        description: "reviews the text from a Hemmingway perspective. How easy is the text to read? Does it concrete, specific and more commonly found words?"
+    },
+    scientist: {
+        description: "reviews the text from a scientific perspective. How well does the text explain the topic? Does it include references? Is it told in an objective way?"
+    }
+}
+
+const getFeedbackOnContent = async (contentToGetFeedbackOn: string, selectedReviewers?: string[]) => {
+
+    selectedReviewers = selectedReviewers ?? Object.keys(reviewersRoster)
+    selectedReviewers = selectedReviewers.filter(reviewer => Object.keys(reviewersRoster).includes(reviewer))
+
+    const systemInstructionsPersonas = selectedReviewers.map(
+        reviewer => `The ${reviewer} persona, who ${reviewersRoster[reviewer].description}`
+    ).join('\n')
+
+    const systemInstructions = `
+    You will be provided with a text, and your task is to
+    through different personas evaluate the quality of the text.
+    You will answer with an json object, where the each persona is a key,
+    and the value is an object with the properties 'score' and 'feedback'.
+    The personas are the following:
+    ${systemInstructionsPersonas}
+    `
+
     const gptResponse = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [
             {
                 "role": "system",
-                "content": `
-                    You will be provided with a text, and your task is to
-                    through different personas evaluate the quality of the text.
-                    You will answer with an json object, where the each persona is a key,
-                    and the value is an object with the properties 'score' and 'feedback'. 
-                    The first persona is 'the story teller', who reviews the text from
-                    a story telling perspective.
-                    The second persona is the 'teacher', who reviews the text from
-                    an educational perspective.
-                    The third persona is the 'helper', who reviews the text from
-                    the perspective of how easy the contents are to understand.
-                    `
+                "content": systemInstructions
             },
             {
                 "role": "user",
