@@ -5,6 +5,8 @@ import publicRouter from '../../src//routes/public';
 
 const app = express();
 
+console.log("HELLO")
+
 app.use('/api/', apirRouter);
 app.use('/', publicRouter);
 
