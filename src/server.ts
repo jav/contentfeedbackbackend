@@ -110,7 +110,7 @@ app.post('/api/reviewers/:reviewerSlug/getFeedback', async (req: Request<{ revie
     const contentToGetFeedbackOn = req.body.contentToGetFeedbackOn
 
     try {
-        const feedback = getFeedbackOnContent(reviewerSlug, contentToGetFeedbackOn)
+        const feedback = await getFeedbackOnContent(reviewerSlug, contentToGetFeedbackOn)
         return res.json(feedback)
     } catch (error) {
         return res.status(500).json({ error })
