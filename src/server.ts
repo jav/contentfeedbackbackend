@@ -50,7 +50,7 @@ const reviewersRoster = {
 const getFeedbackOnContent = async (reviewerSlug: string, contentToGetFeedbackOn: string): Promise<ReviewerFeedback> => {
 
     if (!(reviewerSlug in reviewersRoster)) {
-        throw new Error('Invalid reviewerSlug')
+        throw new Error(`Invalid reviewerSlug: ${reviewerSlug}`)
     }
 
     const systemInstructions = `
