@@ -48,14 +48,13 @@ const reviewersRoster = {
 }
 
 const getFeedbackOnContent = async (reviewerSlug: string, contentToGetFeedbackOn: string): Promise<ReviewerFeedback> => {
-
     if (!(reviewerSlug in reviewersRoster)) {
         throw new Error(`Invalid reviewerSlug: ${reviewerSlug}`)
     }
 
     const systemInstructions = `
     You will be provided with a text, and your task is to evaluate the text
-    through the perspective of a persona.
+    through the perspective and in character of a persona.
     You will answer with an json object with the following keys and values .
     Key: score, Value: a number between 0 and 10, where 0 is the worst and 10 is the best.
     Key: feedback, Value: a string where you describe what you thought about the text from your perspective.
