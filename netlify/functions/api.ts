@@ -5,9 +5,10 @@ import publicRouter from '../../src//routes/public';
 
 const app = express();
 
-console.log("HELLO")
-app.use('/hello', (req, res) => res.send('Hello World!'));
-app.use('/api/', apirRouter);
-app.use('/', publicRouter);
+const router = Router();
+
+router.get('/hello', (req, res) => res.send('Hello World!'));
+
+app.use('/api/', router);
 
 export const handler = serverless(app);
