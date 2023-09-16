@@ -10,6 +10,7 @@ import publicRouter from './routes/public'
 const app = express()
 const port = 9000
 
+app.use(cors())
 
 app.use('/api/', apirRouter);
 app.use('/', publicRouter);
