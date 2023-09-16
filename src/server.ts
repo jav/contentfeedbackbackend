@@ -3,7 +3,7 @@ import cors from 'cors'
 import 'dotenv/config'
 
 
-import apirRouter from './routes/api'
+import apiRouter from './routes/api'
 import publicRouter from './routes/public'
 
 
@@ -12,7 +12,7 @@ const port = 9000
 
 app.use(cors())
 
-app.use('/api/', apirRouter);
+app.use('/api/', apiRouter);
 app.use('/', publicRouter);
 
 
