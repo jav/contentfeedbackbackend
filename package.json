@@ -2,16 +2,16 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "nodemon": "npx nodemon src/server.ts --watch 'src/**/*.ts'",
-    "dev": "tsc && node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "yarn build && npx functions-framework --target serverFunction --port 8081",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
     "@netlify/functions": "^2.0.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",

@@ -19,3 +19,9 @@ app.use('/', publicRouter);
 app.listen(port, () => {
     console.log(`Server is listening on ${port} ℹ️`)
 })
+
+import { HttpFunction } from '@google-cloud/functions-framework';
+
+export const serverFunction: HttpFunction = async (req, res) => {
+  res.send('Hello World!');
+}
