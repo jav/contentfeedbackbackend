@@ -1,27 +1,18 @@
-import express, { Request, Response } from "express"
+import express from "express"
 import cors from 'cors'
 import 'dotenv/config'
 
 
 import apiRouter from './routes/api'
-import publicRouter from './routes/public'
 
 
-const app = express()
+export const app = express()
 const port = 9000
 
 app.use(cors())
 
-app.use('/api/', apiRouter);
-app.use('/', publicRouter);
-
+app.use('/', apiRouter)
 
 app.listen(port, () => {
-    console.log(`Server is listening on ${port} ℹ️`)
+  console.log(`Server is listening on ${port} ℹ️`)
 })
-
-import { HttpFunction } from '@google-cloud/functions-framework';
-
-export const serverFunction: HttpFunction = async (req, res) => {
-  res.send('Hello World!');
-}

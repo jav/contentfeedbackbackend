@@ -99,12 +99,12 @@ const getFeedbackOnContent = async (reviewerSlug: string, contentToGetFeedbackOn
     }
 }
 
-router.get('/api/reviewers', async (req: Request, res: Response) => {
+router.get('/reviewers', async (req: Request, res: Response) => {
     const reviewersRosterAsList = Object.values(reviewersRoster)
     return res.json(reviewersRosterAsList)
 })
 
-router.post('/api/reviewers/:reviewerSlug/getFeedback', async (req: Request<{ reviewerSlug: string }>, res: Response) => {
+router.post('/reviewers/:reviewerSlug/getFeedback', async (req: Request<{ reviewerSlug: string }>, res: Response) => {
     const reviewerSlug = req.params.reviewerSlug
     const contentToGetFeedbackOn = req.body.contentToGetFeedbackOn
 

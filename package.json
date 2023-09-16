@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "start": "yarn build && npx functions-framework --target serverFunction --port 8081",
+    "start": "yarn build && npx functions-framework --target app --port 8081",
+    "deploy": "gcloud functions deploy api --entry-point app --gen2 --runtime nodejs18 --trigger-http --allow-unauthenticated --region=europe-north1 --set-env-vars $(paste -sd, .env )",
     "build": "tsc"
   },
   "keywords": [],
