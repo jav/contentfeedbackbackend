@@ -33,22 +33,26 @@ const reviewersRoster = {
     storyTeller: {
         slug: "storyTeller",
         name: "The Story Teller",
-        description: "A storyteller that reviews the text from a story telling perspective. How well does the text tell a story? Does include cliffhangers?"
+        description: `A storyteller that reviews the text from a story telling perspective. How well does
+                      the text tell a story? Does include cliffhangers?`
     },
     teacher: {
         slug: "teacher",
         name: "The Teacher",
-        description: "A teacher that reviews the text from an educational perspective. How well does the text teach the reader? Is it clear? Does it include examples?"
+        description: `A teacher that reviews the text from an educational perspective. How well does the
+                      text teach the reader? Is it clear? Does it include examples?`
     },
     hemingway: {
         slug: "hemingway",
         name: "Ernst Hemingway",
-        description: "Ernst Hemingway. Hemingway reviews the text from a Hemingway perspective. How easy is the text to read? Does it concrete, specific and more commonly found words?"
+        description: `Ernst Hemingway. Hemingway reviews the text from a Hemingway perspective. How easy
+                      is the text to read? Does it concrete, specific and more commonly found words?`
     },
     scientist: {
         slug: "scientist",
         name: "The Scientist",
-        description: "Reviews the text from a scientific perspective. How well does the text explain the topic? Does it include references? Is it told in an objective way?"
+        description: `Reviews the text from a scientific perspective. How well does the text explain the
+                      topic? Does it include references? Is it told in an objective way?`
     }
 }
 
