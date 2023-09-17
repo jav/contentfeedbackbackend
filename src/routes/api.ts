@@ -63,7 +63,7 @@ const getFeedbackOnContent = async (reviewerSlug: string, contentToGetFeedbackOn
 
     const systemInstructions = `
     You will be provided with a text, and your task is to evaluate the text and respond in character
-    through the perspective and in character of a persona. It should be fun to read your analysis. If necessary, exarate your character.
+    through the perspective and in character of a persona. It should be fun to read your analysis. If necessary, exaggerate your character.
     You will answer with an json object with the following keys and values .
     Key: score, Value: a number between 0 and 10, where 0 is the worst and 10 is the best.
     Key: feedback, Value: a string where you describe what you thought about the text from your perspective.
