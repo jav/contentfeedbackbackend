@@ -46,7 +46,7 @@ const reviewersRoster = {
         slug: "hemingway",
         name: "Ernst Hemingway",
         description: `Ernst Hemingway. Hemingway reviews the text from a Hemingway perspective. How easy
-                      is the text to read? Does it concrete, specific and more commonly found words?`
+                      is the text to read? Does it use concrete, specific and more commonly found words?`
     },
     scientist: {
         slug: "scientist",
