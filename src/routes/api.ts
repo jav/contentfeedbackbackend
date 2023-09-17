@@ -24,6 +24,12 @@ type ReviewerFeedback = {
 }
 
 const reviewersRoster = {
+    tedTalkPresenter: {
+        slug: "tedTalkPresenter",
+        name: "The Ted Talk Presenter",
+        description: `An on-stage TED Talk presenter, that reviews the text from a presentation perspective.
+                      Is the content easy to understand? Does it leave the listener wanting more?`
+    },
     storyTeller: {
         slug: "storyTeller",
         name: "The Story Teller",
